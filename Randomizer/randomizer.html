@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Randomizer</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class="container">
+		<div class="bg_container">
+			<h1>Генератор случайных значений!</h1>
+			<p id="subheader">Нажми на кнопку, и появится случайное значение <br>
+				от <input type="number" id="rMinInput" oninput="getMinInput()" value="0">
+				<input type="range" id="rMin" oninput="getMin()" value="0"><br>
+				до <input type="number" id="rMaxInput" oninput="getMaxInput()" value="100"> 
+				<input type="range" id="rMax" oninput="getMax()" value="100">
+			</p>
+			<p id="number" class="gray">Тут будет число</p>
+			<input id = "button" type="button" name="get_random" value="Запуск!" onclick="button()">
+		</div>
+		<script type="text/javascript">
+			var p = document.getElementById("number");
+			var rMin = document.getElementById("rMin");
+			var rMax = document.getElementById("rMax");
+			var rMinInput = document.getElementById("rMinInput");
+			var rMaxInput = document.getElementById("rMaxInput");
+			function getMinInput() {				
+				if (rMinInput.value > 100) {
+					rMinInput.value = 100;
+				} else if (rMinInput.value < 0) {
+					rMinInput.value = 0;
+				}
+				rMin.value = rMinInput.value; 				
+			}
+			function getMaxInput() {
+				if (rMaxInput.value > 100) {
+					rMaxInput.value = 100;
+				} else if (rMaxInput.value < 0) {
+					rMaxInput.value = 0;
+				}
+				rMax.value = rMaxInput.value; 		
+			}
+			function getMin() {
+				rMinInput.value = rMin.value; 				
+			}	
+			function getMax() {				
+				rMaxInput.value = rMax.value; 	
+			}
+			function randNumber() {
+				return Math.round(Math.abs(rMax.value - rMin.value) * Math.random() + Math.min(rMin.value, rMax.value));
+			}
+			function main() {			
+				p.className = "gray";
+				var rand = randNumber();
+				p.innerHTML = rand;
+			}
+			function button() {
+				var bt = document.getElementById("button");
+				bt.disabled = true;
+				var timer1 = setInterval(main, 30);
+				setTimeout(function(){
+					clearInterval(timer1);
+					p.className = "black";
+					bt.disabled = false;
+				}, 400);				
+			}
+		</script>
+	</div>
+</body>
+</html>

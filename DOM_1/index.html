@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Изучаем DOM</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link href="https://fonts.googleapis.com/css?family=Play:400,700&amp;subset=cyrillic" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<h1>Секундомер</h1>
+		<ul>
+			<li name="mins">00</li>
+			<li>:</li>
+			<li class="seconds">00</li>
+			<li>:</li>
+			<li id="cents">00</li>
+		</ul>	
+		<input type="button" name="" value="⟲" onclick="reset()" id="reset">
+		<input type="button" name="" value="►" onclick="startStop()" id="start">
+		<input type="button" name="lap" value="⏱" onclick="createLap()" id="lap" >
+	</div>
+	<script type="text/javascript">
+		var cents = 0;
+		var seconds = 0;
+		var mins = 0;
+		var countEnable = false;
+		var buttonReset = document.getElementById("reset");
+		var buttonLap = document.getElementById("lap");
+		var lapNumber = 0;
+
+		function startStop() {
+			countEnable = !countEnable;
+			if (countEnable) {
+				document.getElementById("start").value = "||";
+				buttonReset.disabled = true;
+				buttonLap.disabled = false;
+			} else {
+				document.getElementById("start").value = "►";
+				buttonReset.disabled = false;
+				buttonLap.disabled = true;
+			}			
+		}
+		function reset() {
+			cents = 0;
+			seconds = 0;
+			mins = 0;
+			lapNumber = 0;
+			var laps = document.getElementsByClassName("laps");
+			for (var i = laps.length - 1; i >= 0; i--) {
+				laps[i].remove();
+			}			
+		}
+		function createLap() {
+			var newLap = document.createElement("p");
+			newLap.className = "laps";
+			newLap.innerHTML = "Круг "+ ++lapNumber + ":         " + addZero(mins) + ":" + addZero(seconds) + ":" + addZero(cents);
+			var parent = document.querySelector(".container");
+			
+			parent.insertBefore(newLap, buttonLap.nextSibling);
+			//parent.appendChild(newLap);
+			console.log(newLap.innerHTML);
+		}
+		function addZero(number) {
+			if (number < 10) {
+				number = "0" + number;
+			} 
+			return number;
+		}
+		function updateVars() {
+			if (cents < 99) {
+				if (countEnable) {
+					cents += 1;				
+				}
+			} else {
+				cents = 0;
+				if (seconds < 59) {
+					seconds++;				
+				} else {
+					seconds = 0;
+					if (mins < 59) {
+						mins++;
+					} else {
+						mins = 0;
+					}
+				}
+			}
+			document.getElementById('cents').innerHTML = addZero(cents);
+			document.getElementsByClassName("seconds")[0].innerHTML = addZero(seconds);
+			document.getElementsByName("mins")[0].innerHTML = addZero(mins);
+		}		
+		setInterval(updateVars, 10);
+	</script>
+</body>
+</html>

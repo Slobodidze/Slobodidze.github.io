@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Рисуем на холсте</title>
+	<style type="text/css">
+		canvas {
+			background-color: lightgreen;
+		}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+</head>
+<body>
+	<canvas id="canvas" width="700" height="600"></canvas>
+	<script type="text/javascript">
+		var canvas = document.getElementById("canvas");		
+		var ctx = canvas.getContext("2d");
+
+		var x = 50;
+		var y = 500;
+
+		setInterval(function(){
+			ctx.clearRect(0,0,700,600);
+			ctx.fillStyle = "#ffff00";
+			ctx.fillRect(20, 20, 150, 100);
+
+			ctx.beginPath();
+			ctx.fillStyle = "#ff0000";
+			ctx.lineWidth = 5;
+			ctx.strokeStyle = "#ff0000";
+			ctx.rect(0,50,500, 50);
+			ctx.fill();
+
+			var grd = ctx.createLinearGradient(50, 200, 50, 300);
+			grd.addColorStop(0, "#ffff00");		
+			grd.addColorStop(1, "#00ff00");
+			ctx.fillStyle = grd;
+			ctx.fillRect(50, 200, 200,100);
+
+			ctx.beginPath();
+			ctx.moveTo(300, 300);
+			ctx.lineTo(300, 400);
+			ctx.lineTo(400, 350);
+			ctx.closePath();
+
+			ctx.lineWidth = 15;
+			ctx.strokeStyle = "#ff8800";
+			ctx.stroke();
+			ctx.fillStyle = "#ff00ff";
+			ctx.fill();
+
+
+			ctx.beginPath();
+			ctx.arc(x,y, 50, 0, 2*Math.PI);
+			ctx.stroke();
+
+			x+=10;
+			//setTimeout(function(){
+				
+			//}, 500);
+		
+		}, 100);
+		
+	</script>
+</body>
+</html>

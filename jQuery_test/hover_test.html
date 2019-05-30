@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Круги</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+	<div class="container">
+		
+	</div>
+	<script type="text/javascript">	
+		var divId = 1;
+		function genCircles(){
+			for (var i = 779; i > 0; i--) {
+				$(".container").append('<div class="round" id="c'+ divId +'"></div>');
+				var r = Math.round(255 * Math.random());
+				var g = Math.round(255 * Math.random());
+				var b = Math.round(255 * Math.random());
+				$("#c"+divId).css("background-color", "rgb(" +r+"," + g + ","+b + ")");
+				divId += 1;
+			}
+		}
+		genCircles();
+		$(".round").mouseenter(function(event){			
+			$(event.target).fadeOut(500).fadeIn(500);
+		});
+		$("body").keydown(function(event){
+			console.log(event.key);
+			if (event.key == 'r') {
+				$(".round").css("background-color","red");
+			} else if (event.key == 'b') {
+				$(".round").css("background-color","lightblue");
+			} else if (event.key == 'g') {
+				$(".round").css("background-color","lightgreen");
+			} else if(event.key == 'd') {
+				$(".round").remove();
+			} else if (event.key == 'n'){
+				$(".round").remove();
+				genCircles();
+			}	
+		});
+	</script>
+</body>
+</html>

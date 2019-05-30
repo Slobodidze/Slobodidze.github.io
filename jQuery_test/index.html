@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JQuery test</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+	<h1>Заголовок</h1>
+	<div id="fade">
+		
+	</div>
+	<div class="round">
+		
+	</div>
+	<script type="text/javascript">
+		$("h1").fadeTo(1,0.01);
+		setTimeout(function() {
+			$("h1").fadeTo(1500, 1);
+			$("body").append("<p>Тестовый абзац</p>");
+			//$("h1").after("<p>После Тестовый абзац</p>");
+		},	1000);
+		setTimeout(function(){
+			$("#fade").fadeOut(1000).delay(3000).show(2000);			
+		}, 2000);
+
+		setInterval(function(){
+			$(".round").slideUp(2000);
+			$(".round").slideDown(2000);
+		}, 4000);
+	</script>
+</body>
+</html>

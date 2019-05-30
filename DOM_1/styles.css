@@ -1,0 +1,47 @@
+body {
+	background-color: lightgray;
+	font-family: 'Play', sans-serif;
+}
+
+.container {
+	width: 30%;
+	margin: 15% auto;
+
+	text-align: center;
+}
+
+ul {
+	padding: 0;
+}
+
+h1 {
+	font-size: 3em;
+}
+
+li {
+	display: inline-block;
+	font-size: 3em;
+}
+
+input[type = button] {
+	
+	font-size: 30px;
+
+	width: 70px;
+	height: 40px;
+
+	margin: 20px 20px;
+	border-radius: 5px;
+}
+input[name = lap] {
+	padding: 0;
+	position: relative;
+	top: 4px;
+}
+
+.laps {
+	border-bottom: 2px solid black;
+	padding-bottom: 16px;
+
+	font-size: 1.6em;
+}

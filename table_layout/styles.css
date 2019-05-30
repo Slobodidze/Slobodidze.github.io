@@ -1,0 +1,41 @@
+body{
+	background-color: #bbff77;
+	font-family: Verdana;
+}
+
+table {
+	width: 100%;
+	margin: 0 auto;
+	border-spacing: 10px;	
+}
+
+td {
+	background-color: #ecffb3;
+
+	height: 100px;
+}
+
+.header {
+	text-align: center;
+	font-size: 30px;
+}
+.menu {
+	width: 25%;
+}
+.content {
+	height: 400px;
+	width: 75%;
+}
+.footer {
+
+}
+
+button {
+	width: 100px;
+	height: 50px;
+	cursor: pointer;
+}
+
+a {
+	text-decoration: none;
+}

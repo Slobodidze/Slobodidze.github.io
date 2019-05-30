@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Игра "Виселица"</title>
+</head>
+<body>
+	<script type="text/javascript">
+		alert("Добро пожаловать в игру \"Виселица\"");	
+		while (1) {
+				var ans = confirm("Будете играть?");
+				if (ans != true) {
+					break;
+				}
+				var WORDS = ["кролик","каменоломня","забвение","заражение",
+				"преображение", "автомобиль","победа","семёрка"];
+
+				var word = WORDS[Math.round((WORDS.length - 1) * Math.random())];
+				//console.log(word);
+				// генерация подсказки
+				var hint = "";
+				for (var i = word.length - 1; i >= 0; i--) {
+					hint += "_";			
+				}				
+				var tries = 0;
+				while (hint.search("_") != -1 && (tries < 7)) { // игровой цикл
+					var guess = prompt("Отгадайте слово:\n" + "    " + hint.split("").join(" "));
+
+					guess = guess.toLowerCase();
+					if (guess == null) {
+						alert("Попытка потрачена впустую!");
+						tries++;
+					} else if (guess.length == 1) {
+						var new_hint = "";
+						var match = 0;
+						for (var i = 0; i < word.length; i++) {
+							if (guess == word[i]) {
+								new_hint += guess;	
+								match = 1;						
+							} else {
+								new_hint += hint[i];
+							}					
+						}
+						if (match == 1) {
+							alert("Такая буква в слове есть!");
+						} else {
+							alert("Такой буквы в слове нет!");
+							tries++;
+						}					
+						hint = new_hint;
+					} else {
+						if (word == guess) {
+							break;
+						} else {
+							alert("Нет, это другое слово!");
+							tries++;
+						}
+					}
+			}
+			if (tries < 7) {
+				alert("ПРАВИЛЬНО!!!\nЭто слово: "+word+"!");
+			} else {
+				alert("Попытки закончились! Вы проиграли!");
+			}
+		}	
+	</script>
+</body>
+</html>

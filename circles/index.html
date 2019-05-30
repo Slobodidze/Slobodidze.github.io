@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Круги по воде
+	</title>
+	<style type="text/css">
+		canvas {
+			background-color: lightblue;
+		}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+</head>
+<body>
+	<canvas id="canvas" width="500" height="500"></canvas>
+	<script type="text/javascript">
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
+		$("canvas").click(function(event){
+			var timers = [];
+			var x = event.offsetX;
+			var y = event.offsetY;
+			
+			ctx.moveTo(x+50, y);		
+			var r = 10;
+			var w = 1;
+
+			timers[0] = setInterval(function(){
+			r += 5;
+			w += 0.2;
+			ctx.clearRect(0,0,500,500);
+			ctx.beginPath();		
+			ctx.lineWidth = w;		
+			ctx.arc(x,y, r, 0, 2*Math.PI);
+			ctx.stroke();
+			if (r > 800) {
+				clearInterval(timers[0]);
+				}
+			}, 10);
+
+		var del = 100;
+		for (var i = 6; i >= 0; i--) {
+			setTimeout(function(){
+				var r = 10;
+				var w = 1;
+
+				timers[i] = setInterval(function(){
+				r += 5;
+				w += 0.2;
+				//ctx.clearRect(0,0,500,500);
+				ctx.beginPath();		
+				ctx.lineWidth = w;		
+				ctx.arc(x,y, r, 0, 2*Math.PI);
+				ctx.stroke();
+				if (r > 800) {
+					clearInterval(timers[i]);
+					}
+				}, 10);
+			}, del);
+			del+=100;
+		}
+			
+		});
+	</script>
+</body>
+</html>

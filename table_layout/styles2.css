@@ -1,0 +1,50 @@
+body {	
+	background-color: #ffff33;
+	height: 2000px;
+	
+	font-size: 25px;
+	color: orange;
+}
+.bg {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: -1;
+
+	width: 1920px;
+	height: 1080px;
+
+	background-image: url(img/bg.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+table, td, th {
+	//border: 2px solid transparent;
+}
+table {
+	margin: 0 auto;
+	border-spacing: 10px;
+	//border-collapse: collapse;
+}
+
+td {
+	text-align: center;
+	width: 150px;
+	background-color: rgba(255,100,100,.4);
+	empty-cells: hide;
+}
+
+.meal {
+	text-align: left;
+	width: 250px;
+	padding-left: 10px;
+}
+
+h1 {
+	width: 150px;
+	margin: 33px auto;
+}
+
+th {
+	background-color: #0f0f0f2f;
+}

@@ -1,0 +1,67 @@
+body{
+	background-image: url(1.jpg); 
+}
+
+.main{
+	position: absolute;
+	top: 150px;
+	left: 150px;
+	width: 270px;
+	height: auto;
+	background-color: blue;
+	opacity: 1;
+}
+	
+label.tab{
+	display: inline-block;	
+	position: relative;
+	top: 0;
+	left: 0;
+	opacity: 1;
+	background-color: black;
+	color: white;
+	font-weight: 600;
+	font-size: 18px;
+	padding: 15px;
+	margin-left: -28px;
+}	
+
+input[name="tabs"]{
+	visibility: hidden;		
+}
+
+.tab-form{
+		background-color: #fff;
+		display: none;
+}
+
+.tab-form.active,
+#tab-1:checked ~ #form-1,
+#tab-2:checked ~ #form-2{
+	display: block;
+}
+
+.enter{
+	position: relative;	
+	text-align: center;
+	
+	color: white;
+	text-decoration: none;
+	display: block;
+	line-height: 46px;
+	margin-top: 30px;
+	margin-bottom: 10px;
+	font-size: 18px;
+	background: #298cad;
+	color: #ffffff;
+}
+
+input{
+		font-size: 16px;
+		border: 2px solid #e9eaea;
+		padding: 12px 14px;
+		box-sizing: border-box;
+		margin-bottom: 22px;
+		color: #1e8da6;
+		outline: none;
+}

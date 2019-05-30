@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Random Phrases</title>
+</head>
+<body>
+	<h1>Random Phrases JS</h1>
+
+	<script type="text/javascript">
+		var adds2 = ["табуреткой","ножом","вилкой","носом","деньгами","окунем","выдохом","силой мысли","гиеной","балалайкой","хлебушком","китом","кирпичом"];
+		var adds = ["собаку", "трицератопса","столб","кирпич","рагу","рыбу","салатик","голубя","носок","питона","грабителя","учебник","крапиву","укулеле","дирижабль"];
+		var verbs = ["гладит", "стирает", "нюхает", "целует", "оперирует", "грабит", "кусает", "ловит", "выжимает"];
+		var adverbs = ["быстро", "ловко", "медленно", "метко", "красноречиво", "тихо", "красиво", "неуклюже", "уверенно", "стесняясь"];
+		var nouns = ["Стол", "Петя", "Тракторист","Орангутан", "Одноклассник", "Сосед", "Дельфин", "Принтер", "Хирург"];
+				
+		var noun = nouns[Math.round( (nouns.length - 1)  * Math.random())];
+		var a1 = adverbs[Math.round( (adverbs.length - 1)  * Math.random())];
+		var verb = verbs[Math.round( (verbs.length - 1)  * Math.random())];
+		var a2 = adds[Math.round( (adds.length - 1)  * Math.random())];
+		var a3 = adds2[Math.round( (adds2.length - 1)  * Math.random())];
+
+		var phrases = noun + " " + a1 + " " + verb + " " + a2 + " " + a3 + ".";
+		console.log(phrases);
+
+		alert(phrases);
+	</script>
+	<p>Тест.</p>
+</body>
+</html>
